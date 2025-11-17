@@ -84,8 +84,7 @@ erDiagram
         STRING specialty
         INT skill_level
         INT total_cases_handled
-        INT current_workload
-        STRING availability
+       
     }
 
     resource_calendar {
