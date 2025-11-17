@@ -74,8 +74,9 @@ erDiagram
         STRING work_type
         STRING description
         INT priority
-        STRING assigned_to FK
+        STRING timestamp
         STRING status
+        STRING assigned_to FK
     }
 
     resources {
@@ -84,20 +85,20 @@ erDiagram
         STRING specialty
         INT skill_level
         INT total_cases_handled
-       
     }
 
     resource_calendar {
+        STRING calendar_id PK
         STRING resource_id FK
+        DATE date
         STRING available_from
         STRING available_to
         INT current_workload
-        DATE date
     }
 
     %% Relationships
-    resources ||--o{ work_requests : "assigned_to → resource_id"
     resources ||--o{ resource_calendar : "resource_id → resource_id"
+    resources ||--o{ work_requests : "assigned_to → resource_id"
 ```
 ---
 ## 4. Multi-Agent Architecture (Using Strands)
